@@ -7,18 +7,48 @@ class App extends Component {
     super(props)
     this.state = {
       squares: [null, null, null, null, null, null, null, null, null],
-      turn: 1
+      turn: 1,
+      gameWon: false,
     }
   }
 
+  gameWinner= (squares) => {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ]
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        if(this.state.turn % 2 === 0) {
+          alert(`Player O Wins`)
+        } else {
+          alert(`Player X Wins`)
+        }
+        this.setState({gameWon: true});
+      }
+    }
+    return null;
+  }
+
   handleGamePlay = (index) => {
-    const { squares, turn } = this.state
-    if(squares[index] === null && turn % 2 !== 0) {
-      squares[index] = "X"
-      this.setState({squares: squares, turn: turn+1})
-    } else if(squares[index] === null && turn % 2 === 0) {
-      squares[index] = "O"
-      this.setState({squares: squares, turn: turn+1})
+    const { squares, turn, gameWon } = this.state
+    if(gameWon !== true){
+      if(squares[index] === null && turn % 2 !== 0) {
+        squares[index] = "X"
+        this.gameWinner(squares)
+        this.setState({squares: squares, turn: turn+1})
+      } else if(squares[index] === null && turn % 2 === 0) {
+        squares[index] = "O"
+        this.gameWinner(squares)
+        this.setState({squares: squares, turn: turn+1})
+      }
     }
   }
 
