@@ -2,4 +2,16 @@
   height: 100px;
   width: 100px;
   border: 2px solid black;
+
+}
+
+.game-board {
+  width: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center
 }
