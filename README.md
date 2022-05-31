@@ -25,8 +25,13 @@ This project will challenge your knowledge of React but should also be an exerci
   - added conditional to only allow spaces to be changed if they are null
   
 - As a user, when either my partner or I win the game (3 squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
+  - created gameWon variable to store if game was won
+  - created a gameWinner method to check for winning hand
+  - setup alert to show winner
+  - checked for winner after each turn in conditional
 
 - As a user, I can't continue playing the game after the game has been won.
+  - created conditional that will no longer allow for players to mark squares if winner has been alerted.
   
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
   
