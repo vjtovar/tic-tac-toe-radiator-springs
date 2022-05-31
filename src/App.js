@@ -6,8 +6,17 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      squares: [null, null, null, null, null, null, null, null, null]
+      squares: [null, null, null, null, null, null, null, null, null],
+   
     }
+  }
+
+  handleGamePlay = (index) => {
+    const { squares } = this.state
+    if(squares[index] === null) {
+      squares[index] = "X"
+      this.setState({squares: squares})
+    } 
   }
 
   render() {
@@ -17,7 +26,12 @@ class App extends Component {
         <div className= "game-board">
           {this.state.squares.map((value, index) => {
             return (
-              <Square/>
+              <Square 
+              value={value}
+              index={index}
+              key={index}
+              handleGamePlay={this.handleGamePlay}
+              />
             )
           })}
           </div>
