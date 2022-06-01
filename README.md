@@ -34,6 +34,8 @@ This project will challenge your knowledge of React but should also be an exerci
   - created conditional that will no longer allow for players to mark squares if winner has been alerted.
   
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
+  - Branch: stale-mate
+  - Created staleMate method and added to gamePlay method
   
 - As a user, I can click on a restart button that will clear the game board.
 
