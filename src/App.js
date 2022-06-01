@@ -37,19 +37,36 @@ class App extends Component {
     return null;
   }
 
+  staleMate= () => {
+    const { turn, gameWon } = this.state
+    if(turn === 9 && gameWon === false){
+      alert('Stale Mate')
+    }
+  }
+
   handleGamePlay = (index) => {
     const { squares, turn, gameWon } = this.state
     if(gameWon !== true){
       if(squares[index] === null && turn % 2 !== 0) {
         squares[index] = "X"
         this.gameWinner(squares)
+        this.staleMate()
         this.setState({squares: squares, turn: turn+1})
       } else if(squares[index] === null && turn % 2 === 0) {
         squares[index] = "O"
         this.gameWinner(squares)
+        this.staleMate()
         this.setState({squares: squares, turn: turn+1})
       }
-    }
+    } 
+  }
+
+  reset = () => {
+    this.setState({ 
+      squares: [null, null, null, null, null, null, null, null, null],
+      turn: 1,
+      gameWon: false,
+    })
   }
 
   render() {
@@ -68,6 +85,9 @@ class App extends Component {
             )
           })}
           </div>
+          <button onClick={this.reset}>
+            Play Again
+          </button>
       </>
     )
   }
