@@ -46,3 +46,6 @@ This project will challenge your knowledge of React but should also be an exerci
 ### 🛠 Resources
 - [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
 - [Tic Tac Toe win condition in React](https://forum.freecodecamp.org/t/need-help-understanding-react-tic-tac-toe-winner-function/137840)
+
+![portfolio2](https://user-images.githubusercontent.com/104322947/211173274-e0d37469-d08f-4375-8af2-23a861fe5783.jpg)
+
